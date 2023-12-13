@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Discord Nitro API Test</title>
+</head>
+<body>
+    <input id="nitro" type="text"></input>
+    <button id="ok">Submit</button>
+<div class="result"></div>
+<script>
+    document.getElementById("ok").addEventListener('click',hello);
+
+function hello(){
+
+
+var input =     document.getElementById("nitro")
+fetch('https://discordapp.com/api/v6/entitlements/gift-codes/'+input.value+'?with_application=false&with_subscription_plan=true')
+.then(
+  function(response) {
+    if (response.status !== 200) {
+        alert("올바르지 않은 Discord Nitro® 코드 입니다.")
+      	return;
+    }
+
+    response.json().then(function(data) {
+    	if (data.code == input.value){
+            alert("Discord Nitro® 코드로 충전이 완료되었습니다.")
+        } else{
+        alert("올바르지 않은 Discord Nitro® 코드 입니다.")
+        }
+    	});
+    });
+  }
+
+</script>
+<!--
+
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠠⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠅⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠌⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠠⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠠⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢐⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠌⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢂⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠠⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢂⠁⠀⠀⠀⠀⠀⠀⠀⠀⡀⠄⠀⢀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠂⠅⠀⠀⠀⠀⠀⢀⢐⠐⠀⠀⢀⢂⠀⢀⠀⡀⡀⠀⠀
+⠀⠀⠈⠌⢂⠢⠠⡀⠀⠀⠀⠀⠀⠀⠀⠈⡢⠀⠀⠀⢀⠌⠐⠀⠀⠀⠀⡂⠢⠈⠂⠁⠀⠀⠁⠀
+⠀⠀⠀⠀⠀⠀⠁⠐⠁⠅⢄⠀⠀⠀⠀⠀⡂⡂⠀⡐⡐⠈⠀⠀⠀⠀⡐⠨⠈⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⠀⠀⠀⠀⠐⠄⠌⠀⠀⠀⠀⠀⠀⠠⠨⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠀⢀⠀⠌⠌⠀⡀⠀⠀⠀⠀⠀⡈⡂⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⡇⡇⡇⡇⡇⡇⡗⡕⡕⡕⡕⡕⡕⠡⡡⡳⡱⡪⡪⡪⡪⡪⡪⠂⣜⢜⢎⢎⢎⠆⠀⠀⡐⠀
+⠀⠀⡇⡇⡇⡇⡇⡇⡇⡇⡇⣇⢗⠑⢄⢗⢕⢕⢕⢕⢕⢕⢕⢕⢅⢑⢎⢎⢎⢎⢎⠆⠀⢀⠂⠀
+⠀⠀⡇⡇⡇⡇⡇⡇⡇⡇⡇⡇⠅⡜⡕⡕⡕⡕⡕⡕⡕⡕⡕⡕⡕⡕⡕⡕⡕⡕⡕⡅⠀⢐⠈⠀
+⠀⠀⠇⡇⢇⠇⡇⢇⠇⡏⠎⠠⡣⠣⡣⠣⡣⠣⡣⠣⡣⠣⡣Lyn Han Apps
+  {We Are Lyn Han Apps. We Make 이상한 웹사이트들.}-->
+</body>
+</html>
